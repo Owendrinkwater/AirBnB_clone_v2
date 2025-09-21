@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+import unittest
+from models.engine.file_storage import FileStorage
+from models.state import State
+
+class TestFileStorageDelete(unittest.TestCase):
+    def setUp(self):
+        """Reset storage before each test"""
+        self.fs = FileStorage()
+        self.fs._FileStorage__objects = {}
+
+    def test_all_with_class_filter(self):
+        s1 = State()
+        s1.name = "California"
+        self.fs.new(s1)
+        self.fs.save()
+        s2 = State()
+        s2.name = "Nevada"
+        self.fs.new(s2)
+        self.fs.save()
+        all_states = self.fs.all(State)
+        self.assertEqual(len(all_states), 2)
+        for obj in all_states.values():
+            self.assertIsInstance(obj, State)
+
+    def test_delete_existing_object(self):
+        s = State()
+        self.fs.new(s)
+        self.fs.save()
+        key = "State." + s.id
+        self.assertIn(key, self.fs.all())
+        self.fs.delete(s)
+        self.assertNotIn(key, self.fs.all())
+
+    def test_delete_none_does_nothing(self):
+        before = len(self.fs.all())
+        self.fs.delete(None)
+        after = len(self.fs.all())
+        self.assertEqual(before, after)
