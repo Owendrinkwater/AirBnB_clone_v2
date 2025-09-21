@@ -140,3 +140,45 @@ Usage: <class_name>.update(<_id>, <dictionary>)
 (hbnb) ["[User] (98bea5de-9cb0-4d78-8a9d-c4de03521c30) {'updated_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134362), 'name': 'Fred the Frog', 'age': 9, 'id': '98bea5de-9cb0-4d78-8a9d-c4de03521c30', 'created_at': datetime.datetime(2020, 2, 19, 21, 47, 29, 134343)}"]
 ```
 <br>
+# AirBnB Clone - The Console (v2)
+
+## Description
+The AirBnB clone project is the first step towards building a full web application: the AirBnB clone.  
+This version (**v2**) introduces a database storage engine (using MySQL) in addition to the file storage engine, and sets the foundation for the RESTful API, web framework, and front-end integration.
+
+The console is a command interpreter that manages AirBnB objects.  
+It allows you to create, update, destroy, and retrieve objects via a simple command-line interface.
+
+---
+
+## Command Interpreter
+The command interpreter can:
+- Create new objects (e.g., User, Place, State, City, Amenity, Review).
+- Retrieve an object from a file, database, or by ID.
+- Do operations on objects (count, show, destroy, update attributes).
+- Store objects persistently (in JSON file or database).
+
+---
+
+## How to Start
+Clone the repository and navigate to the project directory:
+
+```bash
+git clone https://github.com/<your-username>/AirBnB_clone_v2.git
+cd AirBnB_clone_v2
+./console.py
+(hbnb) create User email="test@example.com" password="pwd123" first_name="Owen" last_name="Owade"
+(hbnb) show User 1234-5678-9012
+(hbnb) update User 1234-5678-9012 email "newmail@example.com"
+(hbnb) destroy User 1234-5678-9012
+(hbnb) quit
+
+Requirements
+Python 3.8 or higher
+Ubuntu 20.04 LTS
+MySQL 8.0 (for DB storage)
+
+Authors
+Guillaume (original author)
+Julien (original author)
+Owen Owade - me
