@@ -16,10 +16,10 @@ class State(BaseModel, Base):
     
     if models.storage_t != "db":
         @property
-        def cities(self)
-        """Getter for Filestorage: return list of City instances"""
-        city_list = []
-        for city in models.storage.all(City).values():
-            if city.state_id == self.id:
-                city_list.append(city)
-        return city_list
+        def cities(self):
+            """Getter for Filestorage: return list of City instances"""
+            city_list = []
+            for city in models.storage.all(City).values():
+                if city.state_id == self.id:
+                    city_list.append(city)
+            return city_list
