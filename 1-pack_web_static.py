@@ -12,7 +12,8 @@ def do_pack():
     """
     Generates a .tgz archive from web_static directory
     Stores the archive in versions directory
-    Archive name format: web_static_<year><month><day><hour><minute><second>.tgz
+    Archive name format:
+    web_static_<year><month><day><hour><minute><second>.tgz
     Returns: archive path if successful, otherwise None
     """
     # Create versions directory if not exists
