@@ -16,7 +16,7 @@ def do_deploy(archive_path):
     """
     if not exists(archive_path):
         return False
-    
+
     file_name = archive_path.split("/")[-1]
     folder_name = file_name.split(".")[0]
     release_path = "/data/web_static/releases/{}".format(folder_name)
